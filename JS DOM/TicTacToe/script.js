@@ -4,7 +4,6 @@ const cells = document.querySelectorAll('.cell');
 const result = document.getElementById('result-card');
 const restartbtn = document.getElementById('restart-game');
 
-// let activationStatus = true;
 let currentPlayer = 'X';
 let board = new Array(9).fill('');
 const winningSituations = [
@@ -62,12 +61,10 @@ function handleResult () {
             won = true;
             break;
         }
-        // console.log(a, b, c);
     }
 
     if(won) {
         let winMessage = `Player "${currentPlayer}" Won.`;
-        // activationStatus = false;
         setTimeout(() => result.style.display = "block", 300);
         winner.textContent = winMessage;
         restart.addEventListener('click', restartGame);
@@ -76,9 +73,8 @@ function handleResult () {
 
     if(!board.includes('')) {
         let drawMessage = `It's a Draw`;
-        // activationStatus = false;
         lastWinner = null;
-        result.style.display = "block";
+        setTimeout(() => result.style.display = "block", 300);
         winner.textContent = drawMessage;
         return;
     }
@@ -86,7 +82,6 @@ function handleResult () {
 
 function restartGame () {
     console.log("Event triggered;");
-    // activationStatus = true;
     board = new Array(9).fill('');
     cells.forEach(cell => cell.textContent = '');
     result.style.display = "none";
