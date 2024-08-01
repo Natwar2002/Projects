@@ -15,5 +15,5 @@ alternately, with the loser of the last game getting the first turn in the next 
 also tracked by ancestors of the corresponding child.
 
 *For example:*
-        "In the game, `gameBoard.addEventListener('click', handleCellClick)` sets an event listener on the 
+        "In the game, `onClick={handleCellClick}` sets an event listener on the 
         `game-board`. If you click on any `cell` the event is also tracked by the `game-board`."

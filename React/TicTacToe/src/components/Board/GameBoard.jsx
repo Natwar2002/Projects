@@ -83,6 +83,8 @@ const GameBoard = () => {
                 <Cell itemID="8" />     
             </div>
             <Button styleType="black" onRestart={restartGame}/>
+
+            {/* Short Circuiting */}
             {showResult && <Result message={winnerMessage} onRestart={restartGame} />}
         </>
       );
