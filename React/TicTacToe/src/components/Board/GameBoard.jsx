@@ -36,11 +36,9 @@ const GameBoard = () => {
         clickedCell.textContent = currentPlayer;
     
         if(checkWin(newBoard)) {
-        //   setTimeout(()=> alert(`${currentPlayer} won the match`), 300);
           setWinnerMessage(`${currentPlayer} won the match`);
           setShowResult(true);
         } else if (!newBoard.includes('')) {
-        //   setTimeout(()=> alert(`Its a draw`), 300);
           setWinnerMessage("It's a draw.");
           setShowResult(true);
         }
@@ -65,7 +63,7 @@ const GameBoard = () => {
         } else {
           setCurrentPlayer("X");
         }
-        // setWinnerMessage('');
+        setWinnerMessage('');
         cells.forEach(cell => cell.textContent = '');
         setShowResult(false);
     }
