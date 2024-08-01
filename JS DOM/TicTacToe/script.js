@@ -25,6 +25,7 @@ function handleCellClick (event) {
     let clickedCell = event.target;
     let clickedCellIndex = parseInt(clickedCell.getAttribute('data-index'));
 
+    // If cell is already click before, return
     if(board[clickedCellIndex] != '') return;
 
     // Update the value in board array
