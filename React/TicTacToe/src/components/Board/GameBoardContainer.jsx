@@ -55,11 +55,7 @@ function GameBoardContainer () {
     function restartGame () {
         let cells = document.querySelectorAll('.cell');
         setBoard(new Array(9).fill(''));
-        if(currentPlayer === "X") {
-          setCurrentPlayer("O");
-        } else {
-          setCurrentPlayer("X");
-        }
+        setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
         setWinnerMessage('');
         cells.forEach(cell => cell.textContent = '');
         setShowResult(false);

@@ -11,8 +11,8 @@ alternately, with the loser of the last game getting the first turn in the next 
 
 **Understanding Event Handling Concepts**
 
-**Event Bubbling** : Event bubbling is a concept in which, if we trigger an event on any child, then that event is 
-also tracked by ancestors of the corresponding child.
+**Event Delegation** : This is a technique in which instead of starting from child to the parent everybody listens 
+for the event, we just delegate this task to the parent only to listen to the corresponding fired events.
 
 *For example:*
         "In the game, `gameBoard.addEventListener('click', handleCellClick)` sets an event listener on the 
