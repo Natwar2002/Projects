@@ -8,6 +8,10 @@ function TextInputFormContainer ({onSubmit}) {
     function handleFormSubmit (event) {
         event.preventDefault();
         console.log("Form Submitted", value);
+        if(value == "") {
+            alert("Please enter a valid word");
+            return;
+        }
         onSubmit?.(value);
     }
 

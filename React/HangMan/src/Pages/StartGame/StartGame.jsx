@@ -1,12 +1,19 @@
-import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import TextInputFormContainer from '../../components/TextInputForm/TextInputFormContainer'
 
 function StartGame () {
+
+    const navigate = useNavigate()
+
+    function handleSubmit(value) {
+        navigate('/play', {state : {wordSelected : value}});
+    }
 
     return (
         <div>
             <p>Start Game</p>
 
-            <Link to="/play" >Play</Link>
+            <TextInputFormContainer onSubmit={handleSubmit}/>
         </div>
     );
 }

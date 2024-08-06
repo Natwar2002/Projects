@@ -14,7 +14,7 @@ function App () {
       <Routes>
         <Route path="/start" element={<StartGame />} />
         <Route path="/play" element={<PlayGame />} />
-        <Route path="*" element={ <div> 404 not found </div> } />
+        <Route path="*" element={ <div> not found </div> } />
       </Routes>
 
     </div>
