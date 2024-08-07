@@ -1,5 +1,4 @@
 /**
- * 
  * @param {string} text - the word to be guessed 
  * @param {string[]} usedLetters - letters that have been guessed so far 
  * @returns 
@@ -9,8 +8,6 @@ import { getAllCharacters } from "./MaskedTextUtility";
 
 function MaskedText({text, usedLetters}) {
     const letters = getAllCharacters(text, usedLetters);
-    console.log(typeof usedLetters);
-    console.log(usedLetters);
     
     return (
         <>
