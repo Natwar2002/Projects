@@ -1,30 +1,38 @@
 import Button from "../Button/Button"
 import TextInput from "../TextInput/TextInput"
 
-function TextInputForm ({handleFormSubmit, inputType = "text", value, handleTextInputChange, setInputType}) {
+function TextInputForm ({handleFormSubmit, inputType = "text", value, handleTextInputChange, setInputType, handleHint, hint}) {
     
     return (
-        <form className="flex items-end" onSubmit={handleFormSubmit}>
-            <div className="mr-2 flex-1">
+        <form className="flex flex-col gap-5" onSubmit={handleFormSubmit}>
+            <div>
                 <TextInput 
                     label="Enter a word or phrase"
                     type={inputType}
                     value={value}
                     onChange={handleTextInputChange}          
                 />
-            </div>
 
-            <div>
-                <Button 
+                {/* Todo : fix the show button */}
+                {/* <Button 
                     text={inputType === "password" ? "Show" : "Hide"}
                     onClickHandler={()=> setInputType(inputType === "password" ? "text" : "password")}
                     styleType="warning"
+                /> */}
+            </div>
+
+            {/* TODO : hint functionality */}
+            <div>
+                <TextInput 
+                    label="Give a hint that corresponds to the word."
+                    value={hint}
+                    onChange={handleHint}
                 />
             </div>
 
             <div>
                 <Button 
-                    text={"OK"}
+                    text={"Start Game"}
                     buttonType="submit"
                     styleType={"primary"}
                 />

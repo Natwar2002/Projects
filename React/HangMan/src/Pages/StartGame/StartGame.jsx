@@ -5,16 +5,16 @@ function StartGame () {
 
     const navigate = useNavigate()
 
-    function handleSubmit(value) {
-        navigate('/play', {state : {wordSelected : value}});
+    function handleSubmit(value, hint) {
+        navigate('/play', {state : {wordSelected : value, givenHint : hint}});
     }
 
     return (
-        <div>
-            <p>Start Game</p>
-
+        <div className='flex flex-col p-[2rem] gap-5 items-center'>
+            <p className='font-bold text-[2rem]'>Start Game</p>
             <TextInputFormContainer onSubmit={handleSubmit}/>
         </div>
+
     );
 }
 

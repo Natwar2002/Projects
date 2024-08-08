@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import MaskedText from "../../components/MaskedText/MaskedText";
 import LetterButtons from "../../components/LetterButtons/LetterButtons";
 import { useState } from "react";
@@ -9,6 +9,8 @@ function PlayGame () {
 
     const location = useLocation();
     const wordSelected = location.state?.wordSelected;
+    const givenHint = location.state?.givenHint;
+
     const [step, setStep] = useState(0);
     
     const handleLetterClick = function (letter) {
@@ -19,22 +21,23 @@ function PlayGame () {
     }
 
     return (
-        <div>
-            <p>Play Game</p>
+        <div className="p-10 flex justify-around mx-[10rem] ">
 
-            <MaskedText text={wordSelected} usedLetters={usedLetters} />
-            <hr />
+            <div className="flex flex-col items-center">
+                <p className="text-lg py-1 px-3">Hint : {givenHint.toUpperCase()}</p>
 
-            <div>
-                <div>
-                    <LetterButtons text={wordSelected} usedLetters={usedLetters} onLetterClick={handleLetterClick} />
+                <div className="font-medium my-[2rem] text-xl">
+                    <MaskedText text={wordSelected} usedLetters={usedLetters} />
                 </div>
-                <div>                 
-                    <HangMan step={step}/>
+
+                <div className="w-[450px] text-center">
+                    <LetterButtons text={wordSelected} usedLetters={usedLetters} onLetterClick={handleLetterClick} />
                 </div>
             </div>
 
-            <Link to="/start">Start</Link>
+            <div className="item-end">                 
+                <HangMan step={step}/>
+            </div>
         </div>
     );
 }

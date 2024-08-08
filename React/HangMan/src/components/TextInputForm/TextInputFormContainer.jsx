@@ -4,20 +4,26 @@ import TextInputForm from "./TextInputForm"
 function TextInputFormContainer ({onSubmit}) {
     const [value, setValue] = useState('');
     const [inputType, setInputType] = useState("password");
+    const [hint, setHint] = useState('');
 
     function handleFormSubmit (event) {
         event.preventDefault();
-        console.log("Form Submitted", value);
-        if(value == "") {
-            alert("Please enter a valid word");
+        console.log("Form Submitted", value, hint);
+
+        if(value == "" || hint == "") {
+            alert("Please enter a valid word and give a hint");
             return;
         }
-        onSubmit?.(value);
+        onSubmit?.(value, hint);
     }
 
     function handleTextInputChange (event) {
         console.log(event.target.value);
-        setValue(event.target.value)
+        setValue(event.target.value);
+    }
+
+    function handleHint(event) {
+        setHint(event.target.value);
     }
 
     return (
@@ -26,6 +32,7 @@ function TextInputFormContainer ({onSubmit}) {
             handleTextInputChange={handleTextInputChange}
             inputType={inputType}
             setInputType={setInputType}
+            handleHint={handleHint}
         />
     )
 
