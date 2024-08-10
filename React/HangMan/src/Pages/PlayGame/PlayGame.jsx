@@ -1,8 +1,9 @@
 import { useLocation } from "react-router-dom";
 import MaskedText from "../../components/MaskedText/MaskedText";
-import LetterButtons from "../../components/LetterButtons/LetterButtons";
+import LetterButtons from "../../components/HangMan/LetterButtons/LetterButtons";
 import { useState } from "react";
 import HangMan from "../../components/HangMan/HangMan";
+import Result from "../Result/Result";
 
 function PlayGame () {
     const [usedLetters, setUsedLetters] = useState([]);
@@ -21,7 +22,7 @@ function PlayGame () {
     }
 
     return (
-        <div className="p-10 flex justify-around mx-[10rem] ">
+        <div className="p-10 flex justify-around mx-[10rem] relative">
 
             <div className="flex flex-col items-center">
                 <p className="text-lg py-1 px-3">Hint : {givenHint.toUpperCase()}</p>
@@ -38,6 +39,9 @@ function PlayGame () {
             <div className="item-end">                 
                 <HangMan step={step}/>
             </div>
+
+            { step >= 7 && <Result message="Oops Try again" />}
+            { }
         </div>
     );
 }
