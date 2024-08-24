@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchCoinDetails } from "../Services/fetchCoinDetails";
 import parse from 'html-react-parser';
 import currencyStore from "../state/store";
+import MyLoader from "../components/PageLoader/PageLoader";
 
 function CoinDetailsPage () {
 
@@ -15,7 +16,7 @@ function CoinDetailsPage () {
     });
  
     if(isLoading) {
-        return <div>Loading...</div>
+        return <MyLoader />
     }
 
     if(isError) {
@@ -28,6 +29,7 @@ function CoinDetailsPage () {
                 <img 
                     src={coin?.image?.large}
                     className="h-52 mb-5"
+                    loading='lazy'
                 />
 
                 <h1
