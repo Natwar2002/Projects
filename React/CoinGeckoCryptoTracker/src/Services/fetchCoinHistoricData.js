@@ -6,5 +6,6 @@ export async function fetchCoinHistoricData (id, currency = 'usd', days = 7, int
         return response.data
     } catch (e) {
         console.error(e);
+        return null;
     }
 }

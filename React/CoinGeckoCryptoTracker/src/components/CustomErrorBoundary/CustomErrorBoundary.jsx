@@ -16,7 +16,10 @@ export default function CustomErrorBoundary ({ children }) {
     return (
         <ErrorBoundary
             FallbackComponent={CustomErrorBoundaryUI}
-            onReset={() => window.location.reload()}
+            onReset={() => {
+                console.log('clicked');
+                window.location.reload()
+            }}
         >
             {children}
         </ErrorBoundary>
