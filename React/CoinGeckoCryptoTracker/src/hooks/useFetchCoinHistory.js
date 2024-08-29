@@ -1,9 +1,9 @@
-import currencyStore from '../../state/store';
 import { useState } from "react";
-import { fetchCoinHistoricData } from "../../services/fetchCoinHistoricData";
-import { useQuery } from 'react-query';
+import { useQuery } from "react-query";
+import currencyStore from '../state/store';
+import { fetchCoinHistoricData } from "../services/fetchCoinHistoricData";
 
-function useFetchCoinHistory ( coinId) {
+function useFetchCoinHistory (coinId) {
     const { currency } = currencyStore(); 
     const [days, setDays] = useState(7);
     const [interval, setCoinInterval] = useState('daily');
@@ -13,13 +13,14 @@ function useFetchCoinHistory ( coinId) {
     });
 
     return {
-        days: days,
-        setDays: setDays,
-        currency,
+        days,
+        setDays,
+        setCoinInterval,
         historicData,
         isError,
         isLoading,
-        setCoinInterval,
+        currency,
+        interval,
     }
 }
 
