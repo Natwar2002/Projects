@@ -1,10 +1,10 @@
-import { fetchCoinData } from "../../Services/fetchCoinData";
-import { useQuery } from "react-query";
+import { fetchCoinData } from "../../services/fetchCoinData";
 // import { CurrencyContext } from "../../context/CurrencyContext";
 import currencyStore from '../../state/store';
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 
 function CoinTable() {
 
@@ -15,7 +15,7 @@ function CoinTable() {
     const navigate = useNavigate();
     // const {currency} = useContext(CurrencyContext);
 
-    const {data, isLoading, isError, error} = useQuery(['coins', currency, page], () => fetchCoinData (currency, page), {
+    const {data, isLoading, isError, error} = useQuery(['coins', currency, page], () => fetchCoinData(currency, page), {
         // retry: 2,
         // retryDelay: 1000,
         cacheTime: 1000 * 60 * 2,

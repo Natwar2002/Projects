@@ -11,8 +11,8 @@ function Navbar() {
 
     const [showInput, setShowInput] = useState(false);
     const [searchValue, setSearchValue] = useState("");
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
     function goToHome () {
         navigate('/');
     }
@@ -51,9 +51,11 @@ function Navbar() {
                         </ul>
                     </div>
                 </div>
+
                 <div onClick={goToHome} className="navbar-center">
                     <a className="btn btn-ghost text-xl rounded-full">Crypto Tracker</a>
                 </div>
+
                 <div className="navbar-end">
                     { !showInput ? (<button 
                         className="btn btn-ghost btn-circle"
@@ -73,13 +75,16 @@ function Navbar() {
                         </svg>
                     </button>
                     ) : (
-                        <input 
-                            type="text" 
-                            className='ml-24 py-2 px-4 rounded-full outline-none transition-opacity duration-300 opacity-100'
-                            placeholder='Search crypto...'
-                            value={searchValue}
-                            onChange={handleInputChange}
-                        />
+                        <div>
+                            <input 
+                                type="text" 
+                                className='py-2 px-4 rounded-full outline-none transition-opacity duration-300 opacity-100'
+                                placeholder='Search crypto...'
+                                value={searchValue}
+                                onChange={handleInputChange}
+                            />
+                            <i className="fa-solid fa-xmark absolute top-6 right-6" onClick={() => setShowInput(false)}></i>
+                        </div>
                     )}
                 </div>
             </div>
