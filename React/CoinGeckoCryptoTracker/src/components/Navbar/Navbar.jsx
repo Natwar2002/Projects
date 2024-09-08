@@ -2,28 +2,17 @@
 // import { CurrencyContext } from "../../context/CurrencyContext";
 import { useNavigate } from 'react-router-dom';
 import currencyStore from '../../state/store';
-import { useState } from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 
 function Navbar() {
 
     const { setCurrency } = currencyStore();
     // const {setCurrency} = useContext(CurrencyContext);
-
-    const [showInput, setShowInput] = useState(false);
-    const [searchValue, setSearchValue] = useState("");
-
     const navigate = useNavigate();
     function goToHome () {
         navigate('/');
     }
 
-    function handleInputToggle() {
-        setShowInput( (prev) => !prev);
-    }
-
-    function handleInputChange(e) {
-        setSearchValue(e.target.value);
-    }
     return (
         <>
             <div className="navbar bg-base-100">
@@ -57,35 +46,7 @@ function Navbar() {
                 </div>
 
                 <div className="navbar-end">
-                    { !showInput ? (<button 
-                        className="btn btn-ghost btn-circle"
-                        onClick={handleInputToggle}
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </button>
-                    ) : (
-                        <div>
-                            <input 
-                                type="text" 
-                                className='py-2 px-4 rounded-full outline-none transition-opacity duration-300 opacity-100'
-                                placeholder='Search crypto...'
-                                value={searchValue}
-                                onChange={handleInputChange}
-                            />
-                            <i className="fa-solid fa-xmark absolute top-6 right-6" onClick={() => setShowInput(false)}></i>
-                        </div>
-                    )}
+                    <SearchBar />
                 </div>
             </div>
         </>
